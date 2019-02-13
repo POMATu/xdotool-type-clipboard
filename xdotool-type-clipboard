@@ -23,3 +23,7 @@ sleep $1
   xdotool type "$p"
   xdotool key KP_Enter
 done 
+
+# change current layout back to your layout. Comment if you need only US layout.
+# after that line layout switching starts working again
+setxkbmap us,ru
