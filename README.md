@@ -2,7 +2,7 @@
 This tool types everything from your clipboard to active window. That can be useful to transfer clipboard to guest operating system if you are using virtual machines without guest additions module, and some buggy VNC/RDP connections (and even pasting to UAC cmd.exe which is usually crap when using via RDP).
 
 # Demonstration
-
+![Demo](https://raw.githubusercontent.com/POMATu/xdotool-type-clipboard/master/demo.gif)
 
 # Requirements 
 * Linux host
