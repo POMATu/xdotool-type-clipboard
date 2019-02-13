@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if ! [[ "$1" != "" && $1 > 0 ]];
+then
+echo "This app types everything from clipboard with keyboard. Only english locale is supported"
+echo "Dependencies required: sudo apt install xclip xdotool"
+echo ""
+echo "Usage: $0 secs_to_sleep_before_typing"
+echo "Example: $0 0.1"
+exit 1
+fi
+
+# We need that to solve semicolon bug
+# https://code.google.com/archive/p/semicomplete/issues/13
+setxkbmap us
+
+# sleeping so you can have time to make your window active
+sleep $1
+
+# getting clipboard with final new line and piping that to xdotool
+(xclip -selection c -o; echo "") | while read p; do
+  sleep 0.1
+  xdotool type "$p"
+  xdotool key KP_Enter
+done 
